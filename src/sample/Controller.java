@@ -10,7 +10,6 @@ import javafx.scene.text.Font;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Controller{
@@ -60,7 +59,7 @@ public class Controller{
 
 		try{
 			
-			DatabaseObject do = new DatabaseObject();
+			//DatabaseObject do = new DatabaseObject();
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Baku:1522:xe", "charles", "agbakwu");
