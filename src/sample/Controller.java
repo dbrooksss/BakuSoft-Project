@@ -7,6 +7,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Controller{
 	@FXML
@@ -51,6 +56,22 @@ public class Controller{
 			values.setTextFill(Color.RED);
 			values.setFont(Font.font("Serif", 14));
 			values.setText("Please Enter A Valid Username and Password");
+		}
+
+		try{
+			
+			DatabaseObject do = new DatabaseObject();
+			
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Baku:1522:xe", "charles", "agbakwu");
+			Statement statement = con.createStatement();
+			ResultSet rs = statement.executeQuery("Select * from Employees");
+			while(rs.next()){
+				System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3));
+			}
+			con.close();
+		}catch(Exception e){
+			System.out.println(e);
 		}
 	}
 }
