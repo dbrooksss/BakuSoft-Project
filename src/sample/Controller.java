@@ -59,8 +59,6 @@ public class Controller{
 
 		try{
 			
-			
-			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Baku:1522:xe", "charles", "agbakwu");
 			Statement statement = con.createStatement();
