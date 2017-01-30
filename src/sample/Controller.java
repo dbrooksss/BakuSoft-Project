@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -58,9 +57,10 @@ public class Controller{
 		}
 
 		try{
-			
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con = DriverManager.getConnection("jdbc:oracle:thin:@Baku:1522:xe", "charles", "agbakwu");
+
+			DatabaseObject dbo = new DatabaseObject();
+			Connection con = dbo.getConnection();
+
 			Statement statement = con.createStatement();
 			ResultSet rs = statement.executeQuery("Select * from Employees");
 			while(rs.next()){
