@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class DatabaseObject{
 
-	private static final String URL = "jdbc:sqlserver://localhost;database=login;integratedSecurity=true;";
+	private static final String URL = "jdbc:sqlserver://localhost;database=EIG;integratedSecurity=true;";
 	private static Connection connection;
 
 	public DatabaseObject(){

@@ -25,12 +25,20 @@ CREATE TABLE Customers
    Contacted	 VARCHAR(10) NOT NULL CHECK (Contacted IN('T', 'F'))
 );
 
-CREATE TABLE Address();
+-- CREATE TABLE Address();
 
 CREATE TABLE Contacted
 (
    CustomerID	 INT NOT NULL,
    Date			 DATETIME DEFAULT GETDATE(),
    EmployeeID	 INT NOT NULL,
-   Comments		 VARCHAR(MAX)
+   Comments		 VARCHAR(MAX),
+   FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 ); 
+
+INSERT INTO EMPLOYEES (FirstName, LastName, Username, Password) VALUES
+('JOHN, SMITH','JONNYV','SWANSON'),
+('APRIL, SAMES','ANNIE','GABLE'),
+('HERCULES, ANTHONY','DRZUES','BRAIN');
+
+SELECT * FROM EMPLOYEES;
